@@ -17,7 +17,7 @@ jobs:
           git config --global user.name "Mirror Bot"
           git config --global user.email "mirror@github.com"
 
-          git clone --bare https://github.com/sourceuser/source-repo.git source
+          git clone --bare https://gitee.com/wangrui5015/Zotero-WPSJS.git source
           cd source
 
           git push --mirror "https://${{ github.actor }}:${{ secrets.GH_PUSH_TOKEN }}@github.com/eslam-allam/zotero-wpsjs-mirror.git"
