@@ -1,0 +1,23 @@
+name: Mirror zotero-wpsjs to GitHub
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # every hour
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Clone source repo
+        run: |
+          git config --global user.name "Mirror Bot"
+          git config --global user.email "mirror@github.com"
+
+          git clone --bare https://github.com/sourceuser/source-repo.git source
+          cd source
+
+          git push --mirror "https://${{ secrets.GH_PUSH_TOKEN }}@github.com/eslam-allam/zotero-wpsjs-mirror.git"
