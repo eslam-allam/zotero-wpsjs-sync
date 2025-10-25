@@ -20,4 +20,4 @@ jobs:
           git clone --bare https://github.com/sourceuser/source-repo.git source
           cd source
 
-          git push --mirror "https://${{ secrets.GH_PUSH_TOKEN }}@github.com/eslam-allam/zotero-wpsjs-mirror.git"
+          git push --mirror "https://${{ github.actor }}:${{ secrets.GH_PUSH_TOKEN }}@github.com/eslam-allam/zotero-wpsjs-mirror.git"
